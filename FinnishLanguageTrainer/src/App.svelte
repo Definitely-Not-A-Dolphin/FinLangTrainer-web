@@ -1,47 +1,47 @@
 <script lang="ts">
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+  import Counter from "./lib/Counter.svelte";
 </script>
 
 <main>
-  <div>
-    <a href="https://vite.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
+  <div class="containerMain">
+    <div class="containerCol1">
+      <div class="aside1">
+        <h1>Check Out:</h1>
+      </div>
+      <div class="containerCol1a">
+        <div class="buttons">
+          <button class="button1">My Projects</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="containerCol2">
+      <div class="item header">
+        <h1 class="not nob">Finnish Language Trainer</h1>
+        <p>
+          Oh yeah, it's here: the web-version of my first big project. Its not
+          done, new features will have to be written in C++ and then
+          "translated" to TypeScript, so updates won't happen often :(
+        </p>
+      </div>
+
+    <div>
+      <Counter />
+    </div>
+      
+    </div>
+
+    <div class="containerCol3">
+      <img
+        class="item sizzle"
+        src="../images/S_I_Z_Z_L_E.jpg"
+        alt="picture of my cat"
+      />
+      <img
+        class="item sizzle"
+        src="../images/BaldCat.jpg"
+        alt="picture of my friends cat"
+      />
+    </div>
   </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
 </main>
-
-<style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
-</style>
