@@ -1,5 +1,6 @@
 <script lang="ts">
   import Counter from "./lib/Counter.svelte";
+  import Settings from "./lib/Settings.svelte";
 </script>
 
 <main>
@@ -25,10 +26,13 @@
         </p>
       </div>
 
-    <div>
-      <Counter />
-    </div>
-      
+      <div class="item main">
+        <Settings />
+      </div>
+
+      <div>
+        <Counter />
+      </div>
     </div>
 
     <div class="containerCol3">

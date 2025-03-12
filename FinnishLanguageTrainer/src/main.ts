@@ -7,3 +7,7 @@ const app = mount(App, {
 })
 
 export default app
+
+let selectedLanguage: string;
+function setLanguage(): void {
+}
