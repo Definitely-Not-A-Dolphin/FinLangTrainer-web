@@ -9,20 +9,8 @@
     setLanguage = "Finnish";
   };
 
-  // Wordtype
-
   // Amount of words
   let wordAmount: number = 6;
-
-  const AddOne = () => {
-    wordAmount += 1;
-  };
-  const SubtractOne = () => {
-    wordAmount -= 1;
-    if (wordAmount === 0) {
-      wordAmount = 1;
-    };
-  };
 
   // Random
   let random: boolean = true
@@ -51,8 +39,7 @@
 <h3 class="nob">Word Amount</h3>
 <p class="not">
   Give the amount of words you would like to practise:
-  <button onclick={SubtractOne}>Subtract one</button>
-  <button onclick={AddOne}>Add one</button>
+  <input type="number" bind:value={wordAmount} min="1" max="36" />
   <br />
   The current word amount is {wordAmount}
 </p>
