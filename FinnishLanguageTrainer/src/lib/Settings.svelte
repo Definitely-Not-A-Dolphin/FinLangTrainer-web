@@ -21,7 +21,7 @@
     wordAmount -= 1;
     if (wordAmount === 0) {
       wordAmount = 1;
-    }
+    };
   };
 
   // Random

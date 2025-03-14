@@ -3,6 +3,7 @@
   import Settings from "./lib/Settings.svelte";
   import BaldCat from "./assets/BaldCat.jpg";
   import Sizzle from "./assets/Sizzle.jpg";
+  import Practise from "./lib/Practise.svelte";
 </script>
 
 <main>
@@ -26,6 +27,10 @@
           done, new features will have to be written in C++ and then
           "translated" to TypeScript, so updates won't happen often :(
         </p>
+      </div>
+
+      <div class="item main">
+        <Practise />
       </div>
 
       <div class="item main">
