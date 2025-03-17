@@ -1,24 +1,32 @@
 <script lang="ts">
   import words from "../jsonfiles/wordsFile.json";
 
-  let engWord: string = $state(words.wordsArray[1][0]);
-  let finWord: string = $state(words.wordsArray[1][1]);
+  let wordsArray = $state(words.wordsArray);
+
+  function randomInt(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  const nextWord = () => {
+    continuePractise = true;
+    inputText = "";
+    submitted = false;
+    index = randomInt(1, 3);
+    counter++;
+  };
+
+  let practise: boolean = $state(false);
+  let index: number = $state(randomInt(1, 3));
+  let counter: number = $state(0);
+
+  let engWord: string = $state(wordsArray[index][0]);
+  let finWord: string = $state(wordsArray[index][1]);
 
   let continuePractise: boolean = $state(false);
   let submitted: boolean = $state(false);
   let correct: boolean = $state(false);
 
   let inputText: string = $state("");
-
-  const randomInt = (min: number, max: number) => {
-    Math.floor(Math.random() * (max - min + 1)) + min;
-  };
-
-  const nextWord = () => {
-    continuePractise = true;
-    inputText = "";
-    submitted = false;
-  };
 
   const submitAnswer = () => {
     submitted = true;
@@ -55,53 +63,62 @@
     random = false;
     randomText = "not ";
   };
+
+  const commencePractise = () => {
+    practise = true;
+  };
 </script>
 
-<div class="item practise">
-  <p>
-    Give the finnish word for {engWord}:
-  </p>
+{#if practise}
+  <div class="item practise">
+    <p>
+      Question {counter}: give the finnish word for {engWord}:
+    </p>
 
-  <input bind:value={inputText} />
-  <button onclick={submitAnswer}>Submit</button>
+    <input bind:value={inputText} />
+    <button onclick={submitAnswer}>Submit</button>
 
-  {#if submitted}
-    {#if correct}
-      <p>Correct :D</p>
-    {:else}
-      <p>Incorrect :(</p>
+    {#if submitted}
+      {#if correct}
+        <p>Correct :D</p>
+      {:else}
+        <p>Incorrect :(</p>
+      {/if}
+      <button onclick={nextWord}>Next</button>
     {/if}
-  {/if}
+  </div>
+{/if}
 
-  <button onclick={nextWord}>Next</button>
-</div>
+{#if !practise}
+  <div class="item main">
+    <h2>Settings</h2>
 
-<div class="item main">
-  <h2>Settings</h2>
+    <button onclick={commencePractise}>Start</button>
 
-  <h3 class="nob">Language</h3>
-  <p class="not">
-    Click on the language that you want to practise:
-    <button onclick={setEnglish}>English</button>
-    <button onclick={setFinnish}>Finnish</button>
-    <br />
-    The current language is {setLanguage}
-  </p>
+    <h3 class="nob">Language</h3>
+    <p class="not">
+      Click on the language that you want to practise:
+      <button onclick={setEnglish}>English</button>
+      <button onclick={setFinnish}>Finnish</button>
+      <br />
+      The current language is {setLanguage}
+    </p>
 
-  <h3 class="nob">Word Amount</h3>
-  <p class="not">
-    Give the amount of words you would like to practise:
-    <input type="number" bind:value={wordAmount} min="1" max="36" />
-    <br />
-    The current word amount is {wordAmount}
-  </p>
+    <h3 class="nob">Word Amount</h3>
+    <p class="not">
+      Give the amount of words you would like to practise:
+      <input type="number" bind:value={wordAmount} min="1" max="36" />
+      <br />
+      The current word amount is {wordAmount}
+    </p>
 
-  <h3 class="nob">Random Order</h3>
-  <p class="not">
-    Would you like to randomise the word order?
-    <button onclick={setRandomTrue}>Yes</button>
-    <button onclick={setRandomFalse}>No</button>
-    <br />
-    The word order is {randomText}randomised.
-  </p>
-</div>
+    <h3 class="nob">Random Order</h3>
+    <p class="not">
+      Would you like to randomise the word order?
+      <button onclick={setRandomTrue}>Yes</button>
+      <button onclick={setRandomFalse}>No</button>
+      <br />
+      The word order is {randomText}randomised.
+    </p>
+  </div>
+{/if}
