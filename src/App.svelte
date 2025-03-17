@@ -1,6 +1,5 @@
 <script lang="ts">
   import Counter from "./lib/Counter.svelte";
-  import Settings from "./lib/Settings.svelte";
   import BaldCat from "./assets/BaldCat.jpg";
   import Sizzle from "./assets/Sizzle.jpg";
   import Practise from "./lib/Practise.svelte";
@@ -29,22 +28,19 @@
         </p>
       </div>
 
-      <div class="item main">
-        <Practise />
-      </div>
-
-      <div class="item main">
-        <Settings />
-      </div>
+      
+      <Practise />
+      
 
       <div>
         <Counter />
       </div>
+      
     </div>
 
     <div class="containerCol3">
-      <img class="item sizzle" alt="picture of my cat" src={Sizzle} />
-      <img class="item sizzle" alt="picture of my friends cat" src={BaldCat} />
+      <img class="item pussypic" alt="picture of my cat" src={Sizzle} />
+      <img class="item pussypic" alt="picture of my friends cat" src={BaldCat} />
     </div>
   </div>
 </main>
