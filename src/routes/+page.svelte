@@ -5,8 +5,12 @@
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+  // Settings
+  let wordAmount: number = 6;
+
+
   let index: number = $state(1);
-  let engword: string = $derived(data.array[index][1]);
+  let engword: string = $derived(data.array[index][0]);
   let finWord: string = $derived(data.array[index][1]);
   let input: string = $state("");
 
@@ -39,7 +43,7 @@
     submitted = false;
     correct = false;
     practising = false;
-    wordCount = 0;
+    wordCount = 1;
     index = 1;
   };
 </script>
